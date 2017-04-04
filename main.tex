@@ -1,0 +1,229 @@
+% -*- program: xelatex -*-
+\documentclass[a4paper,12pt,openany]{book}
+\usepackage[slantfont,boldfont]{xeCJK}
+\usepackage{CJKnumb}
+%\usepackage{fontspec,xltxtra,xunicode}
+%\usepackage[slantfont,boldfont]{xeCJK}
+\setCJKmainfont[BoldFont={Songti SC}, ItalicFont={KaiTi}]{SimSun}
+\setmainfont{Times New Roman}
+
+\makeatletter
+\def\CTEX@section@format{\Large\bfseries}
+\makeatother
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{ccmap}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage[top=2.54cm,bottom=2.54cm,left=3.17cm,right=3.17cm,includehead,includefoot]{geometry} %% 页面设置
+\usepackage[section]{placeins} %% 要求浮动的图形在它们所在的章节中排出选项，如section改为below，则放松要求到下一个section开始
+\usepackage[figuresright]{rotating} %旋转表格方向
+\usepackage{enumerate}
+\usepackage{graphicx} %% 图形支持
+\usepackage{subfigure}
+\usepackage{indentfirst} %% 首行缩进宏包
+\usepackage{cite} %% 支持引用的宏包
+%\usepackage{bibspacing}
+%\setlength{\bibspacing}{\baselineskip}
+
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb}
+\usepackage[chapter]{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+
+%% Begin 字号设置=================================
+\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont} %% 初号
+\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont} %% 小初号
+\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont} %% 一号
+\newcommand{\erhao}{\fontsize{22pt}{\baselineskip}\selectfont} %% 二号
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont} %% 小二号
+\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont} %% 三号
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont} %% 小三号
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont} %% 四号
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont} %% 小四号
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont} %% 五号
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont} %% 小五号
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont} %% 六号
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont} %% 七号
+%% End 字号设置=================================
+
+%% test =============================
+%\usepackage[perpage,symbol]{footmisc}   % 脚注控制
+%\usepackage{type1cm}
+%\usepackage{palatino}
+%\usepackage{listings}  % 源代码列表
+%\usepackage{wasysym}
+%\usepackage{mathrsfs}   % 不同于\mathcal or \mathfrak 之类的英文花体字体
+%\usepackage[sort&compress,numbers]{natbib}  % 支持引用的宏包
+%\usepackage{subfigure}
+%\usepackage{floatflt}
+%\usepackage{caption2}
+%\usepackage{tweaklist} % 调整列表环境
+%\usepackage{algorithm, algpseudocode}
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+\setlength{\baselineskip}{10pt plus2pt minus2pt} %% 设置行距为20pt
+%\setlength{\parskip}{4pt plus2pt minus2pt} %% 段落间距 为8 +2 -2之间浮动
+\setlength{\parskip}{8pt plus2pt minus2pt} %% 段落间距 为8 +2 -2之间浮动
+\renewcommand{\baselinestretch}{1}
+\setlength{\parskip}{0.5\baselineskip}
+\usepackage{fancyhdr}
+\usepackage[sf]{titlesec}
+\titleformat{\chapter}[hang]{\normalfont\LARGE\filcenter}{\bf 第~\CJKnumber{\thechapter}~章}{20pt}{\LARGE}
+\titlespacing{\chapter}{0pt}{-3ex  plus .1ex minus .2ex}{2.5ex plus .1ex minus .2ex}
+\titleformat{\section}[hang]{\bf \Large }{\Large \ \thesection}{1em}{}{}
+\titlespacing{\section}{0pt}{1.5ex plus .1ex minus .2ex}{\wordsep}
+\titleformat{\subsection}[hang]{\bf\large}{\large \ \thesubsection}{1em}{}{}
+\titlespacing{\subsection}{0pt}{1.5ex plus .1ex minus .2ex}{\wordsep}
+\titleformat{\subsubsection}[hang]{\bf }{ \ \thesubsubsection}{1em}{}{}
+\titlespacing{\subsubsection}{0pt}{1.5ex plus .1ex minus .2ex}{\wordsep}
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{第\CJKnumber\thechapter 章\ #1}{}}
+%以上指令中\chaptermark用于重新定义页眉内之章标题；
+%其内容取自LaTeX的\markboth指令。事实上\markboth指令用于存放两项信息，分别
+%存放于指令之后的两个大括号内。在book文件类别中，第一项为章名的相关信息；
+%第二项为节标题的相关信息。故以上命令是重新定义章标题存放于页眉/页脚的内容，
+%节标题不变，因此第二对大括号内为空白
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage} %% 注：在book文件类别下,\leftmark自动存录各章之章名,\rightmark记录节标题
+\fancyhead[LO]{\CJKfamily{fs}复旦大学博士学位论文}
+\fancyhead[RE]{\CJKfamily{fs}\leftmark}
+%% test =============================
+
+\usepackage[colorlinks,citecolor=green,linkcolor=blue,CJKbookmarks=true]{hyperref}%% 链接支持，需放在定理环境之前，fancyhdr之后，防止冲突，书签有乱码
+%\usepackage[dvipdfm,colorlinks,citecolor=green,linkcolor=blue,CJKbookmarks=true]{hyperref} %% 链接支持，需放在定理环境之前，fancyhdr之后，防止冲突，书签无乱码，需要TeXify->LaTeX->dvi2pdf
+\usepackage{theorem}
+%\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning,shadows,trees}
+%\usegdlibrary{trees}
+
+%% Begin 自定义 定理环境=================================
+
+
+
+
+\usepackage{enumitem}
+%\let\OLDitemize\itemize
+%\renewcommand\itemize{\OLDitemize\addtolength{\itemsep}{14pt}}
+%\let\tempone\itemize
+%\let\temptwo\enditemize
+%\renewenvironment{itemize}{\tempone\addtolength{\itemsep}{0.5\baselineskip}}{\tempone}
+%\renewenvironment{enumerate}{\tempone\addtolength{\itemsep}{0.5\baselineskip}}{\temptwo}
+%% End 自定义 定理环境=================================
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\bibname}{参考文献}
+\renewcommand{\contentsname}{目录}
+\renewcommand{\listfigurename}{插图索引}
+\renewcommand{\listtablename}{表格索引}
+\renewcommand{\listalgorithmname}{算法索引}
+\floatname{algorithm}{算法}
+\hypersetup{CJKbookmarks=true}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+%\newtheorem{proof}{\textbf{证明}:}
+\newenvironment{proof}{\paragraph{\emph{\bf 证明:}}}{\hfill$\square$}
+\newtheorem{definition}{\textbf{定义}}[chapter] %% 按照section编号
+
+\newtheorem{theorem}[definition]{{\bf 定理}} %% 与definition统一编号
+
+ %% 与definition统一编号
+%\newtheorem{lemma}{Lemma}
+
+\newtheorem{proposition}[definition]{\textbf{命题}}
+\newtheorem{lemma}[definition]{\textbf{引理}} %% 与definition统一编号
+\newtheorem{corollary}[definition]{\textbf{推论}} %% 与definition统一编号
+\newtheorem{condition}{\textbf{条件}}[chapter]
+\newtheorem{property}{\textbf{性质}}[chapter]
+\newcommand{\pozhehao}{\kern0.3ex\rule[0.8ex]{2em}{0.1ex}\kern0.3ex}
+%\usepackage{tocloft}
+
+\newcommand{\ie}{{i.e.}}
+\newcommand{\eg}{{e.g.}}
+\newcommand{\etal}{\emph{et al.}}
+%% figures paths
+
+%\graphicspath{{chapter1/}{chapter3/}{chapter4/}}
+
+\begin{document}
+
+
+\frontmatter
+\pagenumbering{Roman}
+
+%\input{00.00.Cover_blind.tex}
+\input{00.00.Cover.tex}
+\cleardoublepage
+\input{00.01.abstract_cn.tex}\addtocontents{toc}{\protect\vskip-10pt}
+\cleardoublepage
+\input{00.01.abstract_en.tex}\addtocontents{toc}{\protect\vskip-10pt}
+\cleardoublepage
+\input{notation}\addtocontents{toc}{\protect\vskip-10pt}
+\cleardoublepage
+
+
+%\setlength\cftparskip{-2pt}
+%\setlength\cftbeforechapskip{0pt}
+\setcounter{secnumdepth}{2}
+%\clearpage
+\addcontentsline{toc}{chapter}{\contentsname}
+\setlength{\baselineskip}{14pt plus2pt minus2pt}
+\addtocontents{toc}{\protect\vskip-10pt}
+\tableofcontents
+\cleardoublepage
+
+%\clearpage
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\addtocontents{toc}{\protect\vskip-10pt}
+\cleardoublepage
+
+
+{\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables}
+\addtocontents{toc}{\protect\vskip-10pt}
+\cleardoublepage
+
+
+\setlength{\baselineskip}{20pt plus2pt minus2pt}
+\mainmatter
+%\input{00.01.preface}\addtocontents{toc}{\protect\vskip-10pt}\cleardoublepage
+%\listofalgorithms
+%\setlength{\baselineskip}{14pt plus2pt minus2pt}
+
+
+
+
+\input{01.Introduction}\addtocontents{toc}{\protect\vskip-10pt}\cleardoublepage
+\input{02.chap}\addtocontents{toc}{\protect\vskip-10pt}\cleardoublepage
+\input{03.chap}\addtocontents{toc}{\protect\vskip-10pt}\cleardoublepage
+\input{04.chap}\addtocontents{toc}{\protect\vskip-10pt}\cleardoublepage
+\input{05.Conclusion}\addtocontents{toc}{\protect\vskip-10pt}\cleardoublepage
+%\input{05.00.Appendix}
+\backmatter
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\bibname} % 解决目录中参考文献的问题
+\bibliographystyle{gbt7714-2005}
+
+\setlength{\baselineskip}{14pt plus2pt minus2pt}
+\bibliography{reference}
+\cleardoublepage
+%\setlength{\baselineskip}{20pt plus2pt minus2pt}
+\addtocontents{toc}{\protect\vskip-10pt}
+\input{07.Publication.tex}\cleardoublepage
+\input{06.Acknowledgements}\cleardoublepage \addtocontents{toc}{\protect\vskip-10pt}
+\input{10.Declaration}
+
+%\clearpage
+
+%\bibliographystyle{apalike}
+%\bibliographystyle{ieeetr}
+%\bibliography{reference}
+\end{document}
